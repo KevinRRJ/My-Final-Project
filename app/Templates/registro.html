@@ -1,0 +1,112 @@
+<!-- registro.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../static/style.css">
+  
+  <title>OrganizaTec - Registro</title>
+  <style>
+    body {
+      padding-top: 56px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="nav-menu">
+
+      <li class="menu-registro"><a href="/">Inicio</a></li>
+      <li id="link1" class="menu-registro"><a href="#">Introduce tus datos</a></li>
+    </ul>
+
+    <button class="btn-2" id="botonInicioSesión">Inicia sesión</button>
+
+  </nav>
+
+  <header class="container">
+    <div class="content">
+      <div class="blur-2"></div>
+      <div class="blur-2"></div>
+      <h4>Únete a OrganizaTec y optimiza tu tiempo</h4>
+      <h1>Crea una cuenta y <span>empieza a organizar</span> tus tareas</h1>
+      <p>
+        Regístrate ahora para disfrutar de todas las funciones y mejorar tu productividad.
+      </p>
+    </div>
+  </header>
+
+  <div class="MensajeExito">
+    <h1>
+      {% if success_message %}
+        <p class="success-message">{{ success_message }} <a href="{{ login_url }}">Inicia sesión</a></p>
+      {% endif %}
+    </h1>
+  </div>
+
+
+  <section class="formulario">
+    <h2 class="header">REGISTRO</h2>
+    <form action="{{ url_for('register.register') }}" method="post" class="registration-form" onsubmit="return validateForm()">
+        <div class="form-group">
+            <input type="text" id="username" name="username" class="form-control" placeholder="Nombre de usuario" required>
+            <i class='bx bxs-user'></i>
+        </div>
+
+        <div class="form-group">
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+            <i class='bx bxs-envelope' ></i>
+        </div>
+
+        <div class="form-group">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="La contraseña debe tener al menos 8 caracteres, una mayúscula y un número">
+            <i class='bx bx-hide' id="togglePassword"></i>
+            
+        </div>
+
+        <div class="form-group">
+            <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirma tu contraseña" required>
+            <p id="passwordError" style="color: rgb(144, 103, 206);"></p>
+            <i class='bx bx-hide' id="toggleConfirmPassword"></i>
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="birthdate" name="birthdate" class="form-control datepicker" placeholder="Selecciona tu fecha de nacimiento" required readonly>
+          <i class="bx bxs-calendar" id="birthdate-icon"></i>
+        </div>
+
+        <button type="submit" class="btn-2 btn-primary">Enviar</button>
+
+        {% if error_message %}
+          <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+        
+
+
+        <div id="capsLockMessage" class="caps-lock-message">
+          <p>Mayúsculas activadas</p>
+        </div>
+
+    </form>
+
+  </section>
+
+  <div class="blur-2down"></div>
+  <div class="blur-2down"></div>
+
+  
+  <div class="copyright2">
+    Copyright © 2023 All Rights Reserved.
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="../static/scriptForm.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+venv/
+# Archivos de configuración locales
+.vscode/
+.idea/
+__pycache__/
+*.pyc

@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+:root{
+    --body-color:#E4E9F7;
+    --sidebar-color:#FFF;
+    --primary-color:#103eba;
+    --primary-color-light:#F6F5FF;
+    --toggle-color:#DDD;
+    --text-color:#707070;
+
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+body{
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-04);
+}
+body.dark{
+    --body-color:#18191a;
+    --sidebar-color:#242526;
+    --primary-color:#3a3b3c;
+    --primary-color-light:#3a3b3c;
+    --toggle-color:#fff;
+    --text-color:#ccc;
+
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+}
+.sidebar.close{
+    width: 88px;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+.sidebar li{
+    height: 50px;
+    margin-top: 33px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    min-width: 60px;
+    font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text
+{
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+.sidebar header {
+    position: relative;
+}
+.sidebar .image-text img{
+    width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+
+}
+
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-03) ;
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name{
+    font-weight: 600;
+}
+.header-text .slogan{
+    margin-top: -2px;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+   
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--tran-03);
+}
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+
+}
+body.dark .sidebar header .toggle{
+    transform: rotate(180deg);
+    color: var(--text-color)
+}
+
+.sidebar .search-box{
+    background: var(--primary-color-light);
+    border-radius: 6px;
+}
+
+
+.search-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover{
+    background:var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color)
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color)
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode{
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+
+}
+.menu-bar .mode i{
+    position: absolute;
+    transition: var(--tran-03);
+}
+
+.menu-bar .mode i.sun{
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+}
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before{
+    left: 24px;
+}
+.blur{
+    position: absolute;
+    box-shadow: 0 0 1000px 50px #b6bccc;
+    z-index: -100;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+}
+  
+.copy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+.copy-container .copyright {
+    font-size: 0.8rem;
+    color: #000000; /* Puedes ajustar el color del texto según tus preferencias */
+}
+
+.main-content {
+    margin-left: 400px; /* Margen adicional para separar el contenido de la barra lateral */
+    padding: 20px; /* Agrega algún relleno para que el contenido no esté pegado al borde */
+    margin: auto; /* Centra el contenido en el medio de la página */
+}
+
+body.dark .main-content {
+    color: var(--text-color); /* Cambia el color de texto en modo oscuro */
+}
+
+body.dark .copyright {
+    color: var(--text-color); /* Cambia el color de texto en modo oscuro */
+}
+
+
+/* Estilos generales para las secciones */
+.main-content {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos para la sección de bienvenida */
+.main-content header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Ajustes de espacio entre secciones */
+
+
+.agregar-tareas,
+.agregar-habitos,
+.ver-estadisticas{
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 100rem; /* Espacio entre secciones */
+}
+
+.tareas-section{
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 45rem; /* Espacio entre secciones */
+
+}
+
+.configuraciones{
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30rem; /* Espacio entre secciones */
+}
+
+
+
+/* Estilos para la sección de agregar tareas */
+.agregar-tareas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.agregar-tarea-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Reduje el padding para que sea más pequeño */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 500px; /* Ajusta el ancho según tus preferencias */
+    transition: all 0.3s ease; /* Agregamos una transición suave para todos los estilos */
+}
+
+.agregar-tarea-card:hover {
+    border-color: #103eba;
+    transform: scale(1.1); /* Aumentamos el tamaño al pasar el cursor */
+}
+
+.agregar-tarea-card i {
+    font-size: 1.5rem; /* Reduje el tamaño del ícono */
+    margin-bottom: 5px;
+}
+
+
+.tareas-container{
+    width: 100%;
+    height: 100%;
+}
+
+
+.tarea-card {
+    position: relative;
+    background: transparent; /* Fondo transparente */
+    border: 2px solid #989da0; /* Borde de 2 píxeles sólido de color azul */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno de 10 píxeles */
+    margin-bottom: 10px; /* Margen inferior de 10 píxeles */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 40%;
+    transition: all 0.3s ease; /* Agregamos una transición suave para todos los estilos */
+    cursor: pointer;
+}
+
+
+.tarea-card:hover {
+    border-color: #106bba;
+    transform: scale(1.1); /* Aumentamos el tamaño al pasar el cursor */
+}
+
+
+.btn-completar {
+    position: absolute;
+    top: 5px; /* Ajustar la posición desde la parte superior */
+    right: 5px; /* Ajustar la posición desde la derecha */
+    background-color: transparent; /* Color de fondo verde */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 5px 10px; /* Relleno interno */
+    cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+    color: var(--text-color);
+}
+  
+.btn-completar:hover {
+    background-color: #218838; /* Cambiar el color de fondo al pasar el ratón */
+    color: #FFF;
+    border-radius: 8px;
+}
+
+
+.form-container {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    padding: 10px;
+}
+
+/* Estilo para el campo de contraseña */
+label {
+    margin-bottom: 8px; /* Agrega margen inferior al label */
+}
+  
+input {
+    height: 40px;
+    width: 300px;
+    margin-bottom: 16px; /* Agrega más margen inferior al campo de entrada */
+    background: transparent;
+    border: 2px solid #989da0;
+    border-radius: 8px;
+    color: var(--text-color);
+    padding-left: 10px;
+}
+
+.botones {
+    width: 40%;
+    background: transparent;
+    border: 2px solid #989da0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: var(--text-color);
+  }
+  
+.botones:hover {
+    border-color: #ba2f10;
+    transform: scale(1.1);
+}
+
+
+#clusterChart {
+    width: 400px;  /* Ajusta el ancho según tus necesidades */
+    height: 300px; /* Ajusta la altura según tus necesidades */
+  }
+
