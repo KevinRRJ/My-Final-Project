@@ -33,7 +33,7 @@ En MacOS/Linux:
 ```bash
 source .venv/bin/activate
 ```
-### 3. Entrar a la carptea donde se encuentran las depencencias
+### 3. Entrar a la carpeta donde se encuentran las depencencias
 Ejecuta el siguiente comando:
 ```bash
 cd .\My-Final-Project\
