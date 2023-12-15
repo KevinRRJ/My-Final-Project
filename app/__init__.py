@@ -13,7 +13,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tareas.db'
-    app.config['SECRET_KEY'] = 'cfa2e9b33f51264821b11077258fd49f' 
+    app.config['SECRET_KEY'] = 'your_secret_key_here' 
 
     db.init_app(app)
 
